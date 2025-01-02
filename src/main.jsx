@@ -1,9 +1,10 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import HomePage from './pages/users/homepage'
+import { BrowserRouter } from 'react-router-dom'
+import RouterCustom from './router.jsx'
 
 
 createRoot(document.getElementById('root')).render(
-  <HomePage/>
+   <BrowserRouter>
+     <RouterCustom/>
+   </BrowserRouter>
 )
