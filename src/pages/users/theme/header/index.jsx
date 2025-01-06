@@ -1,10 +1,11 @@
 import { memo, useState } from "react";
 import {Link} from "react-router-dom";
 import "./style.scss";
-import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineLinkedin, AiOutlineMail, AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineLinkedin, AiOutlineMail, AiOutlineMenu, AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
 import { formatter } from "@/utils/formatter";
 import { ROUTERS } from "@/utils/router";
 const Header = () => {
+  const [isShowCategories, setIsShowCategories] = useState(true);
   const [menus,setMenus] = useState([
     {
       name: "Trang chủ",
@@ -146,7 +147,28 @@ const Header = () => {
           </div>
       </div>
     </div>
-    
+    <div className="container">
+      <div className="row hero-categories-container">
+        <div className="col-lg-3 hero-categories ">
+          <div className="hero-categories-all" onClick={()=>setIsShowCategories(!isShowCategories)}>
+          <AiOutlineMenu/>
+            Danh sách sản phẩm
+          </div>
+          { isShowCategories && (
+            <ul>
+                <li><Link to="">thịt tươi</Link></li>
+                <li><Link to="">rau củ</Link></li>
+                <li><Link to="">nước trái cây</Link></li>
+                <li><Link to="">trái cây</Link></li>
+                <li><Link to="">hải sản</Link></li>
+            </ul>
+          )
+          }
+         
+        </div>
+        <div className="col-lg-12">phải</div>
+      </div>
+    </div>
     </>
     
   )
