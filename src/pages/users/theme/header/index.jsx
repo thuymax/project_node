@@ -1,7 +1,7 @@
 import { memo, useState } from "react";
 import {Link} from "react-router-dom";
 import "./style.scss";
-import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineLinkedin, AiOutlineMail, AiOutlineMenu, AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineLinkedin, AiOutlineMail, AiOutlineMenu, AiOutlinePhone, AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
 import { formatter } from "@/utils/formatter";
 import { ROUTERS } from "@/utils/router";
 const Header = () => {
@@ -155,7 +155,7 @@ const Header = () => {
             Danh sách sản phẩm
           </div>
           { isShowCategories && (
-            <ul>
+            <ul className={isShowCategories?"":"hidden"}>
                 <li><Link to="">thịt tươi</Link></li>
                 <li><Link to="">rau củ</Link></li>
                 <li><Link to="">nước trái cây</Link></li>
@@ -166,7 +166,26 @@ const Header = () => {
           }
          
         </div>
-        <div className="col-lg-12">phải</div>
+        <div className="col-lg-9 hero-search-container">
+            <div className="hero-search">
+                <div className="hero-search-form">
+                    <form action="">
+                      <input type="text"  placeholder="Bạn đang tìm gì? "/>
+                      <button type="submit">Tìm kiếm</button>
+                    </form>
+                </div>
+                <div className="hero-search-phone">
+                  <div className="hero-search-phone-icon">
+                    <AiOutlinePhone/>
+                  </div>
+                  <div className="hero-search-phone-text">
+                    <p>0123.123.423</p>
+                    <span>hỗ trợ 24/7</span>
+                  </div>
+                </div>
+            </div>
+
+        </div>
       </div>
     </div>
     </>
